@@ -1,0 +1,42 @@
+form#search
+{
+    text-align:center;
+}
+
+form#search input#search_text
+{
+    width:340px;
+}
+
+div#results
+{
+    padding:20px;
+    margin-left:auto;
+    margin-right:auto;
+    width:90%;
+}
+
+span.url
+{
+    color: seagreen;
+}
+
+span.rank
+{
+    margin-left:20px;
+}
+
+span.google_rank 
+{
+    color:#B22222;
+}
+
+span.alexa_rank
+{
+    color:#4B0082;
+}
+
+p.error
+{
+    color:red;
+}

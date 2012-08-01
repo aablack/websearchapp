@@ -1,0 +1,14 @@
+{% for result in search_results %}
+    <p>
+        <a href="{{result.url}}">{{ result.title }}</a>
+        <span class="rank">
+            <span class="google_rank">Google Rank: {{ result.rank.GooglePageRank|default:"n/a" }}</span>
+            <span class="alexa_rank">Alexa Rank: {{ result.rank.AlexaTrafficRank|default:"n/a" }}</span>
+        </span><br />
+        <span class="url">
+            {{ result.url }}
+        </span><br />
+        {{ result.description }}
+    </p>
+{% endfor %}
+
