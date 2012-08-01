@@ -1,0 +1,22 @@
+Instructions
+=================================
+The following instructions have been tested under Linux. The project doesn't use any
+3rd party libraries so it should be possible to run the project under Windows.
+
+Configuration.
+You need to obtain a trial for the Bing Search API. See https://datamarket.azure.com/dataset/.
+Once complete click on "My Account" -> "ACCOUNT INFORMATION" and copy the "Primary Account
+Key".
+In the websearchapp directory open websearchapp/settings.py and paste the Account Key
+into the BING_ACCOUNT_KEY variable.
+
+Now you should be able to start the server. Run the following command from the root
+websearchapp directory.
+
+python manage.py runserver
+
+Open a web browser on the same system and go to the address:
+http://127.0.0.1:8000/search
+
+Assuming Django started successfully you should see a search page and be able
+to perform a search.
