@@ -176,10 +176,9 @@ features=Rank&q=info:%s" % (self._host, ch, urllib2.quote(url, safe='')))
 
 if __name__ == "__main__":
     url = "http://www.archlinux.org"
-    atr = AlexaTrafficRank()
-    gpr = GooglePageRank()
+    providers = (AlexaTrafficRank(), GooglePageRank(),)
 
-    print "Traffic stats for: %s" % (url)
-    print "Alexa Traffic Rank:", atr.get_rank(url)
-    print "Google Page Rank:", gpr.get_rank(url)
+    print("Traffic stats for: %s" % (url))
+    for p in providers:
+        print("%s:%d" % (p.__class__.__name__, p.get_rank(url)))
 
