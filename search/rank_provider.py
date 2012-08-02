@@ -56,7 +56,6 @@ class AlexaTrafficRank(RankProvider):
         url -- get page rank for url
 
         """
-        #TODO: try changing installdate
         query = "http://%s/data?cli=10&dat=nsa&ver=quirk-searchstatus&uid=\
 20120730094100&userip=192.168.0.1&url=%s" % (self._host, urllib2.quote(url, safe=''))
 
