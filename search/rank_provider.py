@@ -1,11 +1,9 @@
-#!/usr/bin/python2
 import struct
 import sys
 import urllib2
 import httplib
 import re
 import xml.etree.ElementTree
-
 
 class RankProvider(object):
     """Abstract class for obtaining the page rank (popularity)
