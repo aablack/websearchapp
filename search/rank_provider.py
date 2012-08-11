@@ -1,5 +1,6 @@
 import struct
 import sys
+import urllib
 import urllib2
 import httplib
 import re
@@ -56,8 +57,13 @@ class AlexaTrafficRank(RankProvider):
         url -- get page rank for url
 
         """
-        query = "http://%s/data?cli=10&dat=nsa&ver=quirk-searchstatus&uid=\
-20120730094100&userip=192.168.0.1&url=%s" % (self._host, urllib2.quote(url, safe=''))
+        query = "http://%s/data?%s" % (self._host, urllib.urlencode((
+            ("cli", 10),
+            ("dat", "nsa"),
+            ("ver", "quirk-searchstatus"),
+            ("uid", "20120730094100"),
+            ("userip", "192.168.0.1"),
+            ("url", url))))
 
         response = self._opener.open(query, timeout=self._timeout)
         if response.getcode() == httplib.OK:
@@ -93,8 +99,13 @@ GoogleToolbar 2.0.111-big; Windows XP 5.1)")]
         # request sent to the toolbarqueries url.
         ch = '6' + str(self._compute_ch_new("info:%s" % (url)))
 
-        query = ("http://%s/tbr?client=navclient-auto&ch=%s&ie=UTF-8&oe=UTF-8&\
-features=Rank&q=info:%s" % (self._host, ch, urllib2.quote(url, safe='')))
+        query = "http://%s/tbr?%s" % (self._host, urllib.urlencode((
+            ("client", "navclient-auto"),
+            ("ch", ch),
+            ("ie", "UTF-8"),
+            ("oe", "UTF-8"),
+            ("features", "Rank"),
+            ("q", "info:%s" % (url)))))
 
         response = self._opener.open(query, timeout=self._timeout)
         if response.getcode() == httplib.OK:
